@@ -1,0 +1,115 @@
+
+(rules PCB Arduino_spektralni_analizator_z_izhodom_za_LED_trak
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (eu.mihosoft.freerouting.autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 4)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.2)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.9)
+    )
+  )
+  (rule
+    (width 750.0)
+    (clear 200.2)
+    (clear 375.0 (type smd_to_turn_gap))
+    (clear 50.0 (type smd_smd))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_800:400_um-GND" "Via[0-1]_800:400_um" GND
+  )
+  (via 
+    "Via[0-1]_800:400_um-VCC" "Via[0-1]_800:400_um" VCC
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (via_rule
+    GND "Via[0-1]_800:400_um-GND"
+  )
+  (via_rule
+    VCC "Via[0-1]_800:400_um-VCC"
+  )
+  (class default
+    "unconnected-(A1-Pad15)" "unconnected-(A1-Pad30)" "unconnected-(A1-Pad13)" "unconnected-(A1-Pad28)" "unconnected-(A1-Pad12)" "unconnected-(A1-Pad11)" "unconnected-(A1-Pad26)" "unconnected-(A1-Pad10)"
+    "unconnected-(A1-Pad25)" "unconnected-(A1-Pad5)" "unconnected-(A1-Pad3)" "unconnected-(A1-Pad18)" "unconnected-(A1-Pad2)" "unconnected-(A1-Pad1)" "unconnected-(DS1-Pad10)" "unconnected-(DS1-Pad9)"
+    "unconnected-(DS1-Pad8)" "unconnected-(DS1-Pad7)" "unconnected-(DS1-Pad3)"
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 750.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    "/LCD_RS" "/WS2813_DRIVE" "/MSGEQ7_RESET" "/LCD_D7" "/MSGEQ7_DATA_R" "/LCD_D6" "/MSGEQ7_STROBE" "/LCD_D5"
+    "/MSGEQ7_DATA_L" "/LCD_D4" "/LCD_EN" "/LCD_RW" +3V3 "Net-(C1-Pad2)" "Net-(C2-Pad2)" "Net-(C3-Pad2)"
+    "Net-(C3-Pad1)" "Net-(C4-Pad2)" "Net-(C4-Pad1)" "Net-(C7-Pad2)" "Net-(C8-Pad2)" "/SPK_LEFT" "/SPK_RIGHT"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 750.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class GND
+    GND
+    (clearance_class GND)
+    (via_rule GND)
+    (rule
+      (width 1000.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class VCC
+    VCC
+    (clearance_class VCC)
+    (via_rule VCC)
+    (rule
+      (width 1000.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
